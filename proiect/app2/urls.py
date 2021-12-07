@@ -2,6 +2,7 @@ from django.urls import path
 from app2 import views
 
 app_name = 'app2'
+
 urlpatterns = [
     path('new_timesheet', views.newPontaj, name='pontaj'),
     path('stop_timesheet', views.stopTimesheet, name='oprire_pontaj'),
@@ -9,4 +10,5 @@ urlpatterns = [
     path('edit/<int:pk>/', views.UpdateCompaniesView.as_view(), name='modificare'),
     path('index/', views.ListCompaniesView.as_view(), name='lista'),
     path('profile/<int:pk>/', views.UpdateProfile.as_view(), name='update_profile'),
+    path('new_account/', views.NewAccountView.as_view(), name='adauga_utilizator'),
 ]
