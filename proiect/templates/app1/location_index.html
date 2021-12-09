@@ -16,6 +16,15 @@
             text-decoration: none;
             border: 2px solid darkblue;
         }
+
+        .remove_button {
+            width: 10%;
+            color: white;
+            background-color: pink;
+            text-decoration: none;
+            border: 2px solid darkblue;
+        }
+
         table > thead > tr {
             background-color: grey;
         }
@@ -40,7 +49,9 @@
                     <td>{{ forloop.counter }}</td>
                     <td>{{ item.city|upper }}</td>
                     <td>{{ item.country }}</td>
-                    <td><a class="update_button" href="{% url 'app1:modificare' item.id %}">Update location</a></td>
+                    <td><a class="update_button" href="{% url 'app1:modificare' item.id %}">Update location</a>
+                    <a class="remove_button" href="{% url 'app1:remove' item.id %}">Remove location</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
