@@ -16,8 +16,12 @@ class JobForm(forms.ModelForm):
         cleaned_data = self.cleaned_data
         name_value = cleaned_data.get('name')
         customer_value = cleaned_data.get('customer')
-        if Job.objects.filter(name=name_value, customer=customer_value, active=1).exists():
-            self._errors['name'] = self.error_class(["Jobul exista deja la aceasta companie!"])
+        if self.pk:
+            if Job.objects.filter(name=name_value, customer=customer_value, active=1).exclude(id=self.pk).exists():
+                self._errors['name'] = self.error_class(["Jobul exista deja la aceasta companie!"])
+        else:
+            if Job.objects.filter(name=name_value, customer=customer_value, active=1).exists():
+                self._errors['name'] = self.error_class(["Jobul exista deja la aceasta companie!"])
         return cleaned_data
 
 
