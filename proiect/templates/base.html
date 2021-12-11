@@ -9,6 +9,7 @@
 {#                    <a href="/location/list/">Location</a>#}
                     <a href="{% url 'app1:listare' %}">Location</a>
                     <a href="{% url 'app2:lista' %}">Company</a>
+                    <a href="{% url 'jobs:list' %}">Jobs</a>
                     <a href="{% url 'app2:update_profile' request.user.id %}">User profile</a>
                     <a href="{% url 'app2:adauga_utilizator' %}">New user</a>
                     {% if ready_to_work is False %}
