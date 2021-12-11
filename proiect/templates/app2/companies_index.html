@@ -16,15 +16,6 @@
             text-decoration: none;
             border: 2px solid darkblue;
         }
-
-        .remove_button {
-            width: 10%;
-            color: white;
-            background-color: pink;
-            text-decoration: none;
-            border: 2px solid darkblue;
-        }
-
         table > thead > tr {
             background-color: grey;
         }
@@ -33,25 +24,27 @@
         }
     </style>
     <br><br><br>
-    <a class="add_button" href="{% url 'app1:adaugare' %}">Add new location</a>
+    <a class="add_button" href="{% url 'app2:adaugare' %}">Add new company</a>
     <table>
         <thead>
             <tr>
                 <th>Index</th>
-                <th>City</th>
-                <th>Country</th>
+                <th>Name</th>
+                <th>Website</th>
+                <th>Company type</th>
+                <th>Location</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            {% for item in location_list %}
+            {% for item in companies_list %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td>{{ item.city|upper }}</td>
-                    <td>{{ item.country }}</td>
-                    <td><a class="update_button" href="{% url 'app1:modificare' item.id %}">Update location</a>
-                    <a class="remove_button" href="{% url 'app1:remove' item.id %}">Remove location</a>
-                    </td>
+                    <td>{{ item.name|upper }}</td>
+                    <td>{{ item.website }}</td>
+                    <td>{{ item.company_type }}</td>
+                    <td>{{ item.location }}</td>
+                    <td><a class="update_button" href="{% url 'app2:modificare' item.id %}">Update company</a></td>
                 </tr>
             {% endfor %}
         </tbody>
