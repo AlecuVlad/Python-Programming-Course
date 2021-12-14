@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'app1',
     'app2',
     'jobs',
+    'myapi',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
